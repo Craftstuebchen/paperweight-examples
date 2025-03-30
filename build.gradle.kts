@@ -2,7 +2,7 @@ import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 plugins {
-    id("io.papermc.paperweight.patcher") version "2.0.0-beta.14"
+    id("io.papermc.paperweight.patcher") version "2.0.0-beta.16"
 }
 
 paperweight {
@@ -19,11 +19,22 @@ paperweight {
             outputFile = file("fork-api/build.gradle.kts")
             patchFile = file("fork-api/build.gradle.kts.patch")
         }
+        patchFile {
+            path = "paper-generator/build.gradle.kts"
+            outputFile = file("fork-generator/build.gradle.kts")
+            patchFile = file("fork-generator/build.gradle.kts.patch")
+        }
         patchDir("paperApi") {
             upstreamPath = "paper-api"
             excludes = setOf("build.gradle.kts")
             patchesDir = file("fork-api/paper-patches")
             outputDir = file("paper-api")
+        }
+        patchDir("paperGenerator") {
+            upstreamPath = "paper-generator"
+            excludes = setOf("build.gradle.kts")
+            patchesDir = file("fork-generator/paper-patches")
+            outputDir = file("paper-generator")
         }
     }
 }

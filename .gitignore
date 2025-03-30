@@ -9,8 +9,11 @@ build
 /fork-server/build.gradle.kts
 /fork-server/src/minecraft
 /paper-server
+!/paper-server/src/generated/java
 /fork-api/build.gradle.kts
+/fork-generator/build.gradle.kts
+/fork-generator/logs
 /paper-api
-/paper-api-generator
+/paper-generator
 
 .idea/

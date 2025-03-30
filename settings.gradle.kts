@@ -14,3 +14,4 @@ rootProject.name = "fork"
 
 include("fork-api")
 include("fork-server")
+include("fork-generator")
